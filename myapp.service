@@ -1,0 +1,14 @@
+[Unit]
+Description=ready-ngrok-demo Node app
+After=network.target
+
+[Service]
+User=ubuntu             # <-- adapte l'utilisateur
+WorkingDirectory=/home/ubuntu/ready-ngrok-demo  # <-- adapte le chemin
+ExecStart=/usr/bin/node index.js
+Restart=on-failure
+Environment=PORT=3000
+Environment=HOST=0.0.0.0
+
+[Install]
+WantedBy=multi-user.target
